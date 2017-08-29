@@ -19,7 +19,9 @@ RUN apt-get update && apt-get install -y \
     wget \
     sendmail \
     git \
-    ruby
+    ruby \
+    php-soap \
+    clean -y
 
 RUN ln -s /usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/MagickWand-config /usr/bin
 
@@ -42,7 +44,8 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
     docker-php-ext-install mysqli && \
     docker-php-ext-install mbstring && \
     docker-php-ext-configure intl --with-icu-dir=/opt/icu582 && \
-    docker-php-ext-install intl
+    docker-php-ext-install intl \
+    docker-php-ext-install soap
 
 RUN pecl channel-update pecl.php.net && \
     pecl install redis && \

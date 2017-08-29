@@ -16,6 +16,7 @@ PHP 5.5, 5.6, 7.1
 - xdebug
 - imagick
 - intl
+- php-soap
 
 ## Soft
 
@@ -23,3 +24,6 @@ PHP 5.5, 5.6, 7.1
 - Node.js + NPM
 - Git
 - Ruby
+
+# Docker build images 
+ $ docker build -t gstearmit/docker-phpstack .

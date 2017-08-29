@@ -65,6 +65,9 @@ RUN apt-get install -y nodejs
 #-----MISS SOAP----#
 # RUN apt-get install php-soap=0.13.0-1
 
+#------ miss Install vi -------#
+#RUN apt-get install vim
+
 # --- COMPOSER --- #
 
 RUN curl -sS https://getcomposer.org/installer | php

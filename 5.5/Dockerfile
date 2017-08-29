@@ -1,6 +1,7 @@
 FROM php:5.5.25-fpm
 
 # --- SOFT --- #
+MAINTAINER gstearmit, gstearmit@gmail.com
 
 RUN apt-get update && apt-get install -y \
     tzdata \

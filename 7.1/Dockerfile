@@ -1,6 +1,7 @@
 FROM php:7.1.4-fpm
 
 # --- SOFT --- #
+MAINTAINER gstearmit, gstearmit@gmail.com
 
 RUN apt-get update && apt-get install -y \
     tzdata \
@@ -60,6 +61,9 @@ RUN echo "extension=redis.so" > /usr/local/etc/php/conf.d/ext-redis.ini && \
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
+
+#-----MISS SOAP----#
+# RUN apt-get install php-soap=0.13.0-1
 
 # --- COMPOSER --- #
 

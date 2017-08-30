@@ -20,8 +20,7 @@ RUN apt-get update && apt-get install -y \
     sendmail \
     git \
     ruby \
-    php-soap \
-    clean -y
+    php-soap
 
 RUN ln -s /usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/MagickWand-config /usr/bin
 
@@ -44,6 +43,8 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
     docker-php-ext-install mysqli && \
     docker-php-ext-install mbstring && \
     docker-php-ext-configure intl --with-icu-dir=/opt/icu582 && \
+    docker-php-ext-configure intl --enable-intl \
+    docker-php-ext-configure soap --enable-soap \
     docker-php-ext-install intl \
     docker-php-ext-install soap
 
@@ -65,8 +66,11 @@ RUN echo "extension=redis.so" > /usr/local/etc/php/conf.d/ext-redis.ini && \
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
 
+#-------Install bower--------#
+RUN  npm install -g bower
+
 #-----MISS SOAP----#
-# RUN apt-get install php-soap=0.13.0-1
+RUN apt-get install php-soap=0.13.0-1
 
 #------ miss Install vi -------#
 #RUN apt-get install vim
